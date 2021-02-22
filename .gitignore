@@ -1,0 +1,7 @@
+/.env
+/.idea
+/vendor
+node-modules
+/24hoursmedia
+
+.DS_Store
