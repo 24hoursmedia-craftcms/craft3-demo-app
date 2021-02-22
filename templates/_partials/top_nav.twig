@@ -1,0 +1,10 @@
+<div class="text-white text-xs hidden sm:block">
+
+    <span class="bg-gray-900 p-2 rounded mr-2">Current site: {{ currentSite.name }}</span>
+
+    {% set sites = craft.app.sites.getAllSites() %}
+    {% for site in sites %}
+    <a href="{{ site.baseUrl }}" class="bg-gray-900 hover:bg-gray-700 p-2 rounded cursor-pointer">{{ site.name }}</a>
+    {% endfor %}
+
+</div>

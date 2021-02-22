@@ -1,0 +1,28 @@
+enableVersioning: false
+handle: viewsWork
+name: 'Views Work'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  044d32e7-b363-413c-9a9b-f31af49ff4ab:
+    enabledByDefault: true
+    hasUrls: true
+    template: views-work/_index
+    uriFormat: views-work
+  af522fa9-1c4a-459d-94c1-3564c267eb27:
+    enabledByDefault: true
+    hasUrls: true
+    template: views-work/_index
+    uriFormat: views-work
+type: single

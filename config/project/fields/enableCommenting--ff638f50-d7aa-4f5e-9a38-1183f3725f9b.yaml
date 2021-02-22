@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: a7447568-5403-428a-888e-5fe6c45e7ae4
+handle: enableCommenting
+instructions: 'Allows users to post comments'
+name: 'Enable commenting'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

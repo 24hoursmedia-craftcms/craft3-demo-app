@@ -1,0 +1,68 @@
+{% extends '_layout.html.twig' %}
+
+{% block body %}
+
+    <div class="app-content">
+        <h1>{{ entry.title }}</h1>
+        {{ entry.bodyText }}
+    </div>
+
+    <hr class="mt-4 mb-4" />
+
+   {% include '_components/views_work/view_counts.twig' with {entry: entry} %}
+
+    <hr class="mt-4 mb-4" />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-8 mb-4">
+        {% set popular_entries = craft.entries.orderByPopular('total', 1).limit(5) %}
+        {% embed '_components/cards/simple_card.html.twig' %}
+            {% block heading %}Popular (total){% endblock %}
+            {% block content %}
+                <ul>
+                    {% for item in popular_entries %}
+                        <li class="mb-2"><a href="{{ item.url }}" class="flex">
+                                <div class="flex-grow">{{ item.title }}</div>
+                                <div class="app-badge bg-red-600">{{ item.viewsWork.total }}</div>
+                            </a></li>
+                    {% endfor %}
+                </ul>
+            {% endblock %}
+        {% endembed %}
+
+        {% set popular_entries = craft.entries.orderByPopular('week', 1).limit(5) %}
+        {% embed '_components/cards/simple_card.html.twig' %}
+            {% block heading %}Popular (this week){% endblock %}
+            {% block content %}
+                <ul>
+                    {% for item in popular_entries %}
+                        <li class="mb-2"><a href="{{ item.url }}" class="flex">
+                                <div class="flex-grow">{{ item.title }}</div>
+                                <div class="app-badge bg-red-600">{{ item.viewsWork.thisWeek }}</div>
+                            </a></li>
+                    {% endfor %}
+                </ul>
+            {% endblock %}
+        {% endembed %}
+
+        {% set popular_entries = craft.entries.orderByPopular('day', 1).limit(5) %}
+        {% embed '_components/cards/simple_card.html.twig' %}
+            {% block heading %}Popular (today){% endblock %}
+            {% block content %}
+                <ul>
+                    {% for item in popular_entries %}
+                        <li class="mb-2"><a href="{{ item.url }}" class="flex">
+                                <div class="flex-grow">{{ item.title }}</div>
+                                <div class="app-badge bg-red-600">{{ item.viewsWork.today }}</div>
+                            </a></li>
+                    {% endfor %}
+                </ul>
+            {% endblock %}
+        {% endembed %}
+    </div>
+
+
+
+    {# Register the pageview with a registration pixel #}
+    {{ entry | views_work_image }}
+
+{% endblock %}

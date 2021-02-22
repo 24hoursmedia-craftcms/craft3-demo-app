@@ -1,0 +1,9 @@
+baseUrl: '@web/site2'
+enabled: true
+handle: secondarySite
+hasUrls: true
+language: en-US
+name: 'Secondary site'
+primary: false
+siteGroup: 96ade9d4-07b3-4e20-a5f4-58746e829ca9
+sortOrder: 2

@@ -1,0 +1,31 @@
+enableVersioning: false
+handle: contents
+name: Content
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  044d32e7-b363-413c-9a9b-f31af49ff4ab:
+    enabledByDefault: true
+    hasUrls: true
+    template: content/_entry
+    uriFormat: 'content/{slug}'
+  af522fa9-1c4a-459d-94c1-3564c267eb27:
+    enabledByDefault: true
+    hasUrls: true
+    template: content/_entry
+    uriFormat: 'content/{slug}'
+structure:
+  maxLevels: null
+  uid: 3c4a3562-a714-45d5-aff5-34fdff5df2dc
+type: structure

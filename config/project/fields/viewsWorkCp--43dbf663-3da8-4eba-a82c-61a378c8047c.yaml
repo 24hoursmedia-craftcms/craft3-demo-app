@@ -1,0 +1,11 @@
+contentColumnType: string
+fieldGroup: d2c1603a-b601-4cc7-93de-bc643ea0ceaf
+handle: viewsWorkCp
+instructions: ''
+name: 'Views Work CP'
+searchable: false
+settings:
+  searchable: false
+translationKeyFormat: null
+translationMethod: none
+type: twentyfourhoursmedia\viewswork\fields\ViewsWorkField

@@ -1,0 +1,23 @@
+{% extends '_layout.html.twig' %}
+
+{% block body %}
+
+    <div class="app-content">
+        <h1>{{ entry.title }}</h1>
+        {{ entry.bodyText }}
+
+        <h2>Content Index</h2>
+        <p>In the content items below, you'll see the plugins demonstrated.</p>
+        {% set articles = craft.entries.section('contents').limit(50).all %}
+        <ul>
+        {% for article in articles %}
+            <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+        {% endfor %}
+        </ul>
+
+    </div>
+
+    {# Register the pageview with a registration pixel #}
+    {{ entry | views_work_image }}
+
+{% endblock %}

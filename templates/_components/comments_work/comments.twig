@@ -1,0 +1,45 @@
+{#
+Shows the comments users left behind for an entry
+
+Example:
+
+{% include '_components/comments_work/comments.twig' with {
+    entry: entry
+    } only
+%}
+
+#}
+
+{# @param entry     the entry to show the comment form for #}
+
+{% set cw_options = {
+    all_sites: false
+} %}
+
+{% set commentsWork = craft.commentsWork.service %}
+{% set count = commentsWork.countComments(entry, cw_options) %}
+{% set comments = commentsWork.fetchComments(entry, 0, 10, cw_options) %}
+
+<div class="mt-3 mb-3">
+    <p>{{ count }} comments</p>
+
+    {% for comment in comments %}
+        {# @var comment \twentyfourhoursmedia\commentswork\models\CommentModel #}
+        <div class="bg-blue-200 mt-1 mb-2 p-2">
+            <small class="mb-2">
+                {{ comment.dateCreated | date }} {{ comment.dateCreated | date('H:i') }}
+                {% if comment.user %}
+                    by {{ comment.user.friendlyName }}
+                    {% else %}
+                    (anonymous comment)
+                {% endif %}
+
+                {% if comment.title is not empty %}
+                    <div class="mb-2 mt-2">{{ comment.title }}</div>
+                {% endif %}
+                <p class="mt-1 text-lg">„{{ comment.comment }}”</p>
+            </small>
+        </div>
+    {% endfor %}
+
+</div>

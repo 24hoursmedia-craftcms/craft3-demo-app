@@ -1,0 +1,57 @@
+{#
+Shows a form where users can enter a comment to an entry
+
+Example:
+{% include '_components/comments_worl/comment_form.twig' with {entry: entry} only %}
+#}
+
+{# @param entry     the entry to show the comment form for #}
+
+{# check if the user has just posted a comment and provide feedback #}
+{% set commentsWork = craft.commentsWork.service %}
+{% set justPosted = commentsWork.checkJustPosted() %}
+
+<a name="comment_form"></a>
+
+{% if justPosted %}
+
+    <div class="bg-gray-300 rounded p-2">
+        <p>Thanks for your post.</p>
+    </div>
+
+{% else %}
+
+    <div class="bg-gray-300 rounded p-2">
+        <form method="post" action="{{ actionUrl('/comments-work/default/post-comment') }}#comment_form">
+            {{ csrfInput() }}
+            {{ signCommentForm(entry) }}
+            <input name="redirect" value="{{ craft.app.request.url }}#comments" type="hidden"/>
+            <input name="elementId" value="{{ entry.id }}" type="hidden"/>
+            <input name="siteId" value="{{ entry.siteId }}" type="hidden"/>
+            <input name="commentFormat" value="text" type="hidden"/>
+
+            <p>Leave a comment here...</p>
+
+            <div class="grid grid-cols-2 gap-2">
+                <div>
+                    <label for="comment-title">Title</label>
+                </div>
+                <div>
+                    <input name="title" id="comment-title" type="text" class="w-full"/>
+                </div>
+
+                <div>
+                    <label for="comment-content">Comment</label>
+                </div>
+                <div>
+                    <textarea name="comment" rows="5" id="comment-content" class="w-full"></textarea>
+                </div>
+
+                <div class="col-span-2 text-right">
+                    <input type="submit" class="bg-blue-600 text-white rounded p-2" value="Post comment"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endif %}

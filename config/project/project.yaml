@@ -1,0 +1,47 @@
+dateModified: 1613940265
+email:
+  fromEmail: info@24hoursmedia.com
+  fromName: 'Craft Sample Application'
+  transportType: craft\mail\transportadapters\Sendmail
+plugins:
+  comments-work:
+    edition: standard
+    enabled: true
+    licenseKey: XPEU3ZEHBJI6O6XSEGPUB2VE
+    schemaVersion: 1.0.3
+    settings:
+      allowAnonymous: '1'
+      autoApprove: '1'
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  twigpack:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  views-work:
+    edition: standard
+    enabled: true
+    licenseKey: NA0EVE0125DTAU3AZS01FYVK
+    schemaVersion: 1.0.1
+    settings:
+      allowUrlReset: '1'
+      allowUrlResetGET: '1'
+      blockByCookieSecret: qKFV3Zt50RF4nsDXIwu8oLplODp0-rU2
+      blockByQueryParamSecret: uwqzBoR9GU6cxe271pswjKaQEHUymtsF
+      enableExperimentalFeatures: false
+      signKey: 8nTlHjXilbTCkmj2HKqIZ0zb1lhFXef8
+      urlResetSecret: EON6ry41eCEuY0Jp_TVGD3QPyu6HSfxR
+system:
+  edition: pro
+  live: true
+  name: 'Craft Sample Application'
+  schemaVersion: 3.6.4
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

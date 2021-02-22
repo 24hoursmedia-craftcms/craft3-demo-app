@@ -1,0 +1,7 @@
+{# this is an ajax endpoint that shows the comments for the element specified by the ?id parameter #}
+
+{% set id = craft.app.request.queryParam('id') %}
+{% set entry = craft.entries.id(id).one %}
+{% if entry %}
+    {% include '_components/comments_work/comments.twig' with {entry: entry} only %}
+{% endif %}

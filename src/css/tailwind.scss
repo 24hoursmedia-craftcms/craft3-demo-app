@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.app-content {
+
+  h1 {
+    @apply font-bold;
+    @apply text-xl;
+    @apply mb-3;
+  }
+
+  h2 {
+    @apply font-bold;
+    @apply text-lg;
+    @apply mt-2 mb-2;
+  }
+
+  p {
+    @apply mb-2
+  }
+
+  a {
+    @apply underline
+  }
+
+  ul {
+    @apply mb-2 list-inside
+  }
+  ul li {
+    @apply list-disc
+  }
+
+}
+
+.app-badge {
+  @apply text-xs mr-2 text-white p-1 pl-2 pr-2 rounded  leading-none flex items-center
+}
+.app-badge span {
+  @apply bg-white p-1 rounded text-blue-600 text-xs ml-2
+}

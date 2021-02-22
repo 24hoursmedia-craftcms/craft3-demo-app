@@ -1,0 +1,40 @@
+{#
+    Show a flexbox with view counts for an entry
+
+    Example (twig):
+
+    {% include '_components/views_work/view_counts.twig' with {entry: entry} %}
+
+#}
+
+{# @param entry     the entry to show the view counts for #}
+
+<div class="flex">
+    <div class="pr-3">
+        Views for this entry:
+    </div>
+    <div>
+        <button class="app-badge bg-blue-600 cursor-default">
+            Views today
+            <span>{{ entry.viewsWork.today }}</span>
+        </button>
+    </div>
+    <div>
+        <button class="app-badge bg-green-600 cursor-default">
+            This week
+            <span>{{ entry.viewsWork.thisWeek }}</span>
+        </button>
+    </div>
+    <div>
+        <button class="app-badge bg-yellow-600 cursor-default">
+            This month
+            <span>{{ entry.viewsWork.thisMonth }}</span>
+        </button>
+    </div>
+    <div>
+        <button class="app-badge bg-red-600 cursor-default">
+            All time
+            <span>{{ entry.viewsWork.total }}</span>
+        </button>
+    </div>
+</div>

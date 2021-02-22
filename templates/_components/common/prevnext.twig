@@ -1,0 +1,27 @@
+{#
+    Shows previous / next items for entries in a structure
+
+    Example:
+    {% include '_components/common/prevnext.twig' with {entry: entry} only %}
+#}
+{# @param entry     the entry to show the view counts for #}
+
+{% set prev = entry.prevSibling %}
+    {% set next = entry.nextSibling %}
+
+<div class="mb-2 flex text-sm">
+    <div>
+        {% if prev %}
+            <a href="{{ prev.url }}">&laquo; Previous</a>
+        {% endif %}
+    </div>
+    <div class="flex-grow"></div>
+    <div>
+        {% if next %}
+            <a href="{{ next.url }}">Next &raquo;</a>
+        {% endif %}
+    </div>
+</div>
+
+
+

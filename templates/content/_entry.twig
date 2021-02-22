@@ -1,0 +1,51 @@
+{% extends '_layout.html.twig' %}
+
+{% block body %}
+
+    {# Register the pageview with a registration pixel #}
+    {{ entry | views_work_image }}
+
+    {% include '_components/common/prevnext.twig' with {entry: entry} only %}
+
+    <div class="app-content">
+
+        <div class="grid grid-cols-2">
+            <div>
+                <h1>{{ entry.title }}</h1>
+                {{ entry.bodyText }}
+
+                <hr/>
+                {% if entry.enableCommenting %}
+                    {% include '_components/comments_work/comment_form.twig' with {entry: entry} only %}
+                {% endif %}
+
+                {% if entry.showComments or entry.enableCommenting %}
+                    {% include '_components/comments_work/comments.twig' with {
+                        entry: entry
+                    } only %}
+                {% endif %}
+
+
+                {# ajax variant #}
+                {% if entry.enableCommenting %}
+                    {% include '_components/comments_work/xhr_comment_form.twig' with {
+                        entry: entry,
+                        comments_selector: '#comments_container'
+                    } only %}
+                {% endif %}
+
+                {% if entry.showComments or entry.enableCommenting %}
+                <div id="comments_container" class="js-xhr-comments" data-xhr-comments-url="{{ siteUrl('/comments-work/xhr/comments', {id: entry.id}) }}">
+                </div>
+                {% endif %}
+
+            </div>
+            <div>
+                {% include '_components/views_work/view_counts.twig' with {entry: entry} only %}
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

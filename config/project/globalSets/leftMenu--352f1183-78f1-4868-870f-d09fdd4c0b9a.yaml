@@ -1,0 +1,18 @@
+fieldLayouts:
+  7e793981-5737-44a3-b834-04b1a9ce4e70:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: afadcb1e-234b-4c7e-b927-9bfaf9c724c8
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Left menu'
+        sortOrder: 1
+handle: leftMenu
+name: 'Left menu'

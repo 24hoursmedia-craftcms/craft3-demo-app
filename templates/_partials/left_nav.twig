@@ -1,0 +1,19 @@
+<div class="flex flex-col justify-between h-screen p-4 bg-gray-800">
+    <div class="text-sm">
+        {% set current_url = craft.request.url %}
+        {% for item in leftMenu.menu.all %}
+            {% set url = item.entry.one.url %}
+            {% set active = url == current_url %}
+            {% if active %}
+                <div class="bg-gray-700 text-blue-300 p-2 rounded mt-2 cursor-default">
+                    {{ item.label }}
+                </div>
+            {% else %}
+                <a href="{{ url }}" class="block w-full bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
+                    {{ item.label }}
+                </a>
+            {% endif %}
+
+        {% endfor %}
+    </div>
+</div>

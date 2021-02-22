@@ -1,0 +1,5 @@
+{
+  "app.css": "/dist/app.css",
+  "app.js": "/dist/app.js",
+  "runtime.js": "/dist/runtime.js"
+}
