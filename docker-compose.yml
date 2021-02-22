@@ -5,7 +5,7 @@ services:
   t4_craft_sampleapp_mysql:
     image: mysql:5.6.50
     volumes:
-      - ./db/craft_sample_app.sql:/docker-entrypoint-initdb.d/craft_sample_app.sql:ro
+      - ./db/craft_sample_app.sql.gz:/docker-entrypoint-initdb.d/craft_sample_app.sql.gz:ro
     environment:
       MYSQL_ROOT_PASSWORD: 1qaz1qaz
 
